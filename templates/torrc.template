@@ -1,0 +1,29 @@
+# Base configuration for TOR instance {INSTANCE_ID}
+SocksPort 0.0.0.0:{SOCKS_PORT}
+SocksPolicy accept *
+
+# Control port (disabled by default for security)
+{CONTROL_PORT_CONFIG}
+
+# Data directory
+DataDirectory /var/lib/tor/instance_{INSTANCE_ID}
+
+# Performance optimizations
+MaxCircuitDirtiness 10
+NewCircuitPeriod 15
+UseEntryGuards 1
+NumEntryGuards 8
+
+# Logging
+Log {LOG_LEVEL} stderr
+
+# Security
+Sandbox 0
+
+{BRIDGE_CONFIG}
+
+# Prevent exit node usage if you only need hidden services/proxy
+# ExitPolicy reject *:*
+
+# DNS
+DNSPort 0
